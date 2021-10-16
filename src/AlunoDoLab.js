@@ -13,3 +13,44 @@ export class AlunoDoLab {
         }
         return true;
     }
+
+    cpfEhValido(){
+        let Soma;
+        let Resto;
+        Soma = 0;
+
+        if (this._cpf == "00000000000") return false;
+
+        for (let i = 1; i <=9; i++){
+            Soma = Soma + parseInt(this._cpf.substring(i-1, i)) * (11 - i);
+        }
+
+        Resto = (Soma * 10) % 11;// % ou mod, retorna o resto da divisão
+
+        if ((Resto == 10) || (Resto == 11)){ 
+            Resto = 0;
+        } 
+
+        if (Resto != parseInt(this._cpf.substring(9, 10)) ){
+            return false;
+        }
+
+        Soma = 0;
+        
+        for (let i = 1; i <= 10; i++){
+            Soma = Soma + parseInt(this._cpf.substring(i-1, i)) * (12 - i);
+        }
+
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11)){
+            Resto = 0;
+        } 
+
+        if (Resto != parseInt(this._cpf.substring(10, 11) ) ) {
+            return false;
+        }
+
+        return true;
+    }
+}
