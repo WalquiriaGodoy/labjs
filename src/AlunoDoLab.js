@@ -4,6 +4,14 @@ export class AlunoDoLab {
         this._sobrenome = sobrenome;
         this._cpf = cpf;
         this._email = email;
+
+        if (!this.alunoEhValido()){
+            throw new Error("Aluno inválido")
+        }
+    }
+
+    get primeiroNome (){
+        return this._nome;
     }
 
     nomeEhValido(){
@@ -57,5 +65,12 @@ export class AlunoDoLab {
     validaEmail() {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(this._email).toLowerCase());
+    }
+
+    alunoEhValido(){
+        if (this.cpfEhValido() && this.nomeEhValido() && this.validaEmail()){
+        return true;
+        }
+        return false;
     }
 }
