@@ -1,5 +1,7 @@
-# Protótipo do cadastro de alunos e alocação dos alunos nas turmas
----
+## 💻 Sobre o projeto
+
+labjs - é um protótipo com a missão de alocar os alunos da escola de dança nas diferentes turmas oferecidas.
+
 ## Funcionalidade atual
 - Recebe dados de um novo aluno
 - Verifica se o nome é válido (Se tem nome e sobrenome)
